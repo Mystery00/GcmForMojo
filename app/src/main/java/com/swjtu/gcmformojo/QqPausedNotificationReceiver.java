@@ -14,7 +14,8 @@ public class QqPausedNotificationReceiver extends BroadcastReceiver
     {
         Bundle msgNotifyBundle = intent.getExtras();
         int notifyId = msgNotifyBundle.getInt("notifyId");
-        if (notifyId != -1) {
+        if (notifyId != -1)
+        {
             NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
             notificationManager.cancel(notifyId);
         }

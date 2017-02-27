@@ -598,11 +598,11 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
         PendingIntent pendingIntentCancel = PendingIntent.getBroadcast(this, notifyId, intentCancel, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //通知暂停事件 by Mystery0
-       // Intent intentPause = new Intent(this, QqPausedNotificationReceiver.class);
-       // intentPause.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-       // intentPause.setAction("qq_notification_paused");
-       // intentPause.putExtras(msgNotifyBundle);
-       // PendingIntent pendingIntentPause = PendingIntent.getBroadcast(this, notifyId, intentPause, PendingIntent.FLAG_UPDATE_CURRENT);
+        Intent intentPause = new Intent(this, QqPausedNotificationReceiver.class);
+        //intentPause.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        intentPause.setAction("qq_notification_paused");
+        intentPause.putExtras(msgNotifyBundle);
+        PendingIntent pendingIntentPause = PendingIntent.getBroadcast(this, notifyId, intentPause, PendingIntent.FLAG_UPDATE_CURRENT);
 
         //通知点击事件
         //应用界面 需要传递最后一次消息内容 避免会话列表为空
@@ -691,7 +691,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
 
         notificationBuilder.addAction(0, "列表", pendingIntentDialog);
         notificationBuilder.addAction(0, "清除", pendingIntentCancel);
-      //  notificationBuilder.addAction(0, "暂停", pendingIntentPause);
+        notificationBuilder.addAction(0, "暂停", pendingIntentPause);
         //  }
 
         //开启应用界面还是QQ界面
