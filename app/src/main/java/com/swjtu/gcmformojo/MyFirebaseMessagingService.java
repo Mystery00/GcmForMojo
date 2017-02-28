@@ -643,7 +643,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
         Boolean qqIsReply=mySettings.getBoolean("check_box_preference_qq_reply",false);
         if(qqIsReply)
             notificationBuilder.addAction(0, "回复", pendingIntentDialog);
-        notificationBuilder.addAction(0, "列表", pendingIntentList);
+        //notificationBuilder.addAction(0, "列表", pendingIntentList);
         notificationBuilder.addAction(0, "清除", pendingIntentCancel);
         notificationBuilder.addAction(0, "暂停", pendingIntentPause);
         //  }
@@ -953,20 +953,20 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
 
 
         // 其次把文件插入到系统图库
-        try
-        {
-            MediaStore.Images.Media.insertImage(context.getContentResolver(),
-                    file.getAbsolutePath(), fileNameTemp, null);
-        } catch (FileNotFoundException e)
-        {
-            e.printStackTrace();
-        }
-
-        // 最后通知图库更新
-        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-        Uri uri = Uri.fromFile(new File(fileName));
-        intent.setData(uri);
-        context.sendBroadcast(intent);
+//        try
+//        {
+//            MediaStore.Images.Media.insertImage(context.getContentResolver(),
+//                    file.getAbsolutePath(), fileNameTemp, null);
+//        } catch (FileNotFoundException e)
+//        {
+//            e.printStackTrace();
+//        }
+//
+//        // 最后通知图库更新
+//        Intent intent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+//        Uri uri = Uri.fromFile(new File(fileName));
+//        intent.setData(uri);
+//        context.sendBroadcast(intent);
 
         // return fileName;
     }
