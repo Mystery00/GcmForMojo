@@ -22,7 +22,6 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.os.Looper;
 import android.os.Message;
-import android.provider.MediaStore;
 import android.provider.Settings;
 import android.support.v4.app.NotificationCompat;
 import android.text.Spanned;
@@ -608,7 +607,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
         Uri defaultSoundUri = Uri.parse(qqSound);
 
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.qq_notification)
+                .setSmallIcon(R.mipmap.qq_ico)
                 .setLargeIcon(BitmapFactory.decodeResource(getResources(), R.mipmap.qq))
                 .setTicker(ticker)
                 .setContentTitle(msgTitle)
@@ -831,7 +830,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
 
         switch (msgId) {
             case "1":
-                smallIcon = R.drawable.qq_notification;
+                smallIcon = R.mipmap.qq_ico;
                 largeIcon = BitmapFactory.decodeResource(getResources(), R.mipmap.qq);
                 break;
             case "2":
@@ -1076,7 +1075,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService
 *子线程处理会话界面通信
 *
  */
-    class userThread extends Thread
+    private class userThread extends Thread
     {
         @Override
         public void run()
